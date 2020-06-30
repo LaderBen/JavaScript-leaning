@@ -1,0 +1,2 @@
+# JavaScript-leaning
+这是一个我学习js的私人进度，同时也是我第一次使用git并将其提交到github的项目

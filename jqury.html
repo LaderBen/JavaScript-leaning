@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //css中有复合样式以及单一样式
+        //复合样式：background、border
+        //单一样式：height、width、positon
+        //getStyle（）函数无法获取复合样式，其只能获取单一样式
+        function css(obj, name, value) {
+            if (arguments.length == 2) {
+                return obj.style[name];
+            } else {
+                obj.style[name] = value;
+            }
+        }
+        window.onclick = function () {
+            var oDiv = document.getElementById('div1');
+            //alert(css(oDiv,'width'));
+            css(oDiv, 'background', 'green');
+        };
+    </script>
+</head>
+
+<body>
+    <div id="div1" style="width:200px;height:200px;height:200px;background: red;">
+    </div>
+</body>
+
+</html>

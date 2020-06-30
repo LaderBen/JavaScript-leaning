@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var name = 'ben';
+        var sex = 'male';
+
+        switch (sex) {
+            case 'male':
+                alert(name + '先生，你好');
+                break;
+            case 'female':
+                alert(name + '女士，你好');
+                break;
+        }
+
+        //判断单双数
+        var a = 12;
+        // if(a%2==0){
+        //     alert('双数');
+        // }else{
+        //     alert('单数');
+        // }
+        a % 2 == 0 ? alert('双数') : alert('单数');
+
+        //for循环的使用
+        for (var i = 0; i < 5; i++) {
+            if (i == 2) {
+                break;//中断整个循环
+                continue;//中断本次循环
+            }
+            alert(i);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

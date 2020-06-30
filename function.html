@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        function show(){
+            return 12;
+        }
+
+        var a = show();
+        alert(show());
+        alert(a);
+*/
+        //函数定义
+        function sum(a, b) {
+            return a + b;
+        }
+        alert(sum(1, 2));
+
+        //arguments 可变参数/不定参数
+        //arguments 是一个数组，其存了所有的参数
+        function sumArgu() {
+            var result = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+
+        alert(sumArgu(12, 4, 3, 5, 3));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -14,8 +14,59 @@
         arr.shift();//从头部删除
         arr.unshift(5)//从头部添加
 
-        //splice，可从数组中间插入元素
         alert(arr);
+
+        //splice，可从数组中间插入元素
+        var arrS=[1,2,3,4,5,6]
+        //删除：splice(起点，长度)
+        arrS.splice(2,3);//功能为删除从第二个元素开始到后面三个元素
+        alert(arrS);//结果为1,2,6
+
+        //插入：splice(起点，长度，元素...)
+        var arrSA=[1,2,3,4,5,6];
+        arrSA.splice(2,0,'a','b','c');
+        alert(arrSA);//结果为1,2,a,b,c,3,4,5,6
+
+        //替换
+        arrSA.splice(2,2,'t','z');
+        alert('替换：'+arrSA);
+
+        /* 数组的连接 */
+        var a=[1,2,3];
+        var b=[4,5,6];
+
+        //concat
+        alert("连接1,顺序a+b："+a.concat(b));
+        alert("连接2,顺序b+a："+b.concat(a));
+        
+        //join
+        alert("join:改变连接符"+a.join('-'));
+        /* 数组的连接 */
+
+        /*数组排序*/
+        //String排序
+        var arr=['float','width','alpha','zoom','left'];
+        alert("sort:排序\n"+arr.sort());
+
+        //数字排序。注意sort()只认识字符串！！
+        var arr=[12,8,99,19,112];
+        //注意sort()只认识字符串！！
+        alert("sort:数字排序\n"+arr.sort());//结果为112,12,19,8,99
+
+        //正确的做法
+        arr.sort(function (n1,n2){
+            return n1-n2;
+            // if(n1<n2){
+            //     return -1;
+            // }else if(n1>n2){
+            //     return 1;
+            // }else{
+            //     return 0; 
+            // }
+        });
+        alert(arr);
+        /*数组排序*/
+
     </script>
 </head>
 <body>

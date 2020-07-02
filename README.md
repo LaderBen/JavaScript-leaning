@@ -21,3 +21,6 @@
 
 ## json.html
     有关json对象的一些知识。
+
+## timer.html
+    有关定时器的操作

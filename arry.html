@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        /*------- 数组常见操作 -------*/
         var arr=[1,2,3];
         //从尾部
         arr.push(4);//往数组末尾添加元素
@@ -30,8 +31,11 @@
         //替换
         arrSA.splice(2,2,'t','z');
         alert('替换：'+arrSA);
+        /*------- 数组常见操作 -------*/
 
-        /* 数组的连接 */
+
+
+        /*------- 数组的连接 -------*/
         var a=[1,2,3];
         var b=[4,5,6];
 
@@ -41,9 +45,12 @@
         
         //join
         alert("join:改变连接符"+a.join('-'));
-        /* 数组的连接 */
+        /*------- 数组的连接 -------*/
 
-        /*数组排序*/
+
+
+
+        /*------- 数组排序 -------*/
         //String排序
         var arr=['float','width','alpha','zoom','left'];
         alert("sort:排序\n"+arr.sort());
@@ -53,7 +60,7 @@
         //注意sort()只认识字符串！！
         alert("sort:数字排序\n"+arr.sort());//结果为112,12,19,8,99
 
-        //正确的做法
+        //正确的做法,使用比较函数
         arr.sort(function (n1,n2){
             return n1-n2;
             // if(n1<n2){
@@ -65,7 +72,7 @@
             // }
         });
         alert(arr);
-        /*数组排序*/
+        /*------- 数组排序 -------*/
 
     </script>
 </head>

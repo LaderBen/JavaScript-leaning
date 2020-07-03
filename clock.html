@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check(n) {
+            if (n < 10) {
+                return '0' + n;
+            } else {
+                return '' + n;
+            }
+        }
+
+        function updateTimer(){
+            //Date对象用于获取系统时间
+            var oDate = new Date();
+
+            var str = check(oDate.getHours()) + ":" + check(oDate.getMinutes()) + ":" + check(oDate.getSeconds());
+            alert(str);
+        }
+
+        window.onload = function () {
+            var aTimerDiv = document.getElementById('timer');
+
+            setInterval(function(){
+                //Date对象用于获取系统时间
+                var oDate = new Date();
+
+                var str = check(oDate.getHours()) + ":" + check(oDate.getMinutes()) + ":" + check(oDate.getSeconds());
+                aTimerDiv.innerHTML=str;
+            },1000);
+
+
+        };
+    </script>
+</head>
+
+<body>
+    <div id="timer"></div>
+</body>
+
+</html>

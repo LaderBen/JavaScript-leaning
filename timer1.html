@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function () {
+            var oBtnOn= document.getElementById('btnOn');
+            var oBtnOff = document.getElementById('btnOff');
+            //申明变量timer，用于存储定时器
+            var timer=null;
+
+            oBtnOn.onclick=function () {
+                timer=setInterval(function(){
+                    alert('a');
+                },5000);
+            };
+
+            oBtnOff.onclick = function () {
+                //关闭定时器
+                clearInterval(timer);
+                alert('定时器已关闭');
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <input id="btnOn" type="button" value="开启" />
+    <input id="btnOff" type="button" value="关闭" />
+</body>
+
+</html>

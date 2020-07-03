@@ -24,3 +24,6 @@
 
 ## timer.html
     有关定时器的操作
+
+## timer1.html
+    如何关闭定时器

@@ -33,3 +33,23 @@
 
 ## 延时提示框.html
     定时器的综合应用，并涉及了“连等”的用法。
+## basicAction.html
+    对一些网页元素进行简单的运动操作
+## faceToObj
+    有关js在面向对象变成的实例。
+## basicAction.html
+    对一些网页元素进行简单的运动操作
+## faceToObj
+    有关js在面向对象变成的实例。
+## basicAction.html
+    对一些网页元素进行简单的运动操作
+## faceToObj
+    有关js在面向对象变成的实例。
+## basicAction.html
+    对一些网页元素进行简单的运动操作
+## faceToObj
+    有关js在面向对象变成的实例。
+## basicAction.html
+    对一些网页元素进行简单的运动操作
+## faceToObj
+    有关js在面向对象变成的实例。

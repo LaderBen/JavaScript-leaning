@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/cssS">
+        #discBlack {
+            margin: 5px;
+            margin-left: 5px;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            background: black;
+        }
+
+        #discWhite {
+            margin: 5px;
+            margin-left: 5px;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+
+        let border = [
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 2, 1, 0, 0, 0],
+            [0, 0, 0, 1, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+
+        let container = document.getElementById("container");
+
+        for (let y = 0; y < 8; y++) {
+            for (let x = 0; x < 8; x++) {
+                let element = document.createElement("div");
+                element.style = "border:solid 1px white;width:50px;height:50px;display:inline-block;background-color:green;vertical-align:middle;";
+                element.id = "div" + y + x;
+                element.onclick = function () {
+                    let disc = document.createElement("div");
+                    var eleID = element.id;
+                    var y = eleID[3];
+                    var x = eleID[4];
+                    if (border[y][x]==0){
+                        disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:black;';
+                        disc.id = "disc";
+                        element.appendChild(disc);
+                    }else{
+                        alert("error")
+                    }
+                    
+                };
+
+                container.appendChild(element);
+                if (border[y][x] == 1) {
+                    let disc = document.createElement("div");
+                    disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:black;';
+                    disc.id = "disc";
+                    element.appendChild(disc);
+                } else if (border[y][x] == 2) {
+                    let disc = document.createElement("div");
+                    disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:white;';
+                    disc.id = "disc";
+                    element.appendChild(disc);
+                }
+            }
+            container.appendChild(document.createElement("br"));
+        }
+
+    </script>
+
+</body>
+
+</html>

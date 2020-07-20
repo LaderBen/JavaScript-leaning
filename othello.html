@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/cssS">
+    <title>othello</title>
+    <style>
         #discBlack {
-            margin: 5px;
+            margin-top: 5px;
             margin-left: 5px;
             border-radius: 20px;
             width: 40px;
@@ -16,7 +16,7 @@
         }
 
         #discWhite {
-            margin: 5px;
+            margin-top: 5px;
             margin-left: 5px;
             border-radius: 20px;
             width: 40px;
@@ -41,6 +41,207 @@
             [0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
+        
+        /*----规则---*/
+            function checkRowLeft(y, x, value) {
+                var temp = [];
+
+                for (let i = 1; i <= x; i++) {
+                    temp.push(border[y][x - i]);
+                }
+
+                if (temp.includes(value) && temp[0] == 2) {
+                    let i = 1;
+                    while (border[y][x - i] != value) {
+                        border[y][x - i] = value;
+                        i++;
+                    }
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+        function checkRowRight(y, x, value) {
+            var temp = [];
+            for (let i = 1; i <= (7 - x); i++) {
+                temp.push(border[y][x + i]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y][x + i] != value) {
+                    border[y][x + i] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkUpLeft(y, x, value) {
+            var temp = [];
+            var arryLength = 0;
+            if (x < y) {
+                arryLength = x;
+            } else {
+                arryLength = y;
+            }
+
+            for (let i = 0; i < arryLength; i++) {
+                temp.push(border[y - i - 1][x - i - 1]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y - i][x - i] != value) {
+                    border[y - i][x - i] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkUpRight(y, x, value) {
+            var temp = [];
+            var arryLength = 0;
+            if (x + y > 7) {
+                arryLength = 7 - x;
+            } else {
+                arryLength = y;
+            }
+
+            for (let i = 0; i < arryLength; i++) {
+                temp.push(border[y - i - 1][x + i + 1]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y - i][x + i] != value) {
+                    border[y - i][x + i] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkDownLeft(y, x, value) {
+            var temp = [];
+            var arryLength = 0;
+            if (x + y < 7) {
+                arryLength = x;
+            } else {
+                arryLength = 7 - y;
+            }
+
+            for (let i = 1; i <= arryLength; i++) {
+                temp.push(border[y + i][x - i])
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y + i][x - i] != value) {
+                    border[y + i][x - i] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkDownRight(y, x, value) {
+            var temp = [];
+            var arryLength = 0;
+            if (x > y) {
+                arryLength = x - y;
+            } else {
+                arryLength = 7 - y;
+            }
+
+            for (let i = 0; i < arryLength; i++) {
+                temp.push(border[y + i + 1][x + i + 1]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y + i][x + i] != value) {
+                    border[y + i][x + i] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkColumnUp(y, x, value) {
+            var temp = [];
+
+            for (let i = 1; i <= y; i++) {
+                temp.push(border[y - i][x]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y - i][x] != value) {
+                    border[y - i][x] = value;
+                    i++;
+                }
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkColumnDown(y, x, value) {
+            var temp = [];
+            for (let i = 1; i <= 7 - y; i++) {
+                temp.push(border[y + i][x]);
+            }
+
+            if (temp.includes(value) && temp[0] == 2) {
+                let i = 1;
+                while (border[y + i][x] != value) {
+                    border[y + i][x] = value;
+                    i++;
+                }
+
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        /*----规则---*/
+
+            function checkCondition(){
+                
+                if (checkColumnUp(y, x, value) || checkColumnDown(y, x, value) || checkRowRight(y, x, value) || checkRowLeft(y, x, value) || checkUpRight(y, x, value) || checkUpLeft(y, x, value) || checkDownRight(y, x, value) || checkDownLeft(y, x, value)) {
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            function checkDisc(y, x, value) {
+                var aRow = border[y];
+
+                if (checkCondition()) {
+                    alert("true");
+                    border[y][x] = 1;
+                    console.log(border);
+                    return true;
+                } else {
+                    alert("false");
+                    return false;
+                }
+            }
+
         let container = document.getElementById("container");
 
         for (let y = 0; y < 8; y++) {
@@ -49,30 +250,26 @@
                 element.style = "border:solid 1px white;width:50px;height:50px;display:inline-block;background-color:green;vertical-align:middle;";
                 element.id = "div" + y + x;
                 element.onclick = function () {
-                    let disc = document.createElement("div");
-                    var eleID = element.id;
-                    var y = eleID[3];
-                    var x = eleID[4];
-                    if (border[y][x]==0){
-                        disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:black;';
-                        disc.id = "disc";
+
+                    if (border[y][x] != 0) {
+                        alert("error");
+                    } else {
+                        checkDisc(y, x, 1);
+                        let disc = document.createElement("div");
+                        disc.id = "discBlack";
                         element.appendChild(disc);
-                    }else{
-                        alert("error")
                     }
-                    
+
                 };
 
                 container.appendChild(element);
                 if (border[y][x] == 1) {
                     let disc = document.createElement("div");
-                    disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:black;';
-                    disc.id = "disc";
+                    disc.id = "discBlack";
                     element.appendChild(disc);
                 } else if (border[y][x] == 2) {
                     let disc = document.createElement("div");
-                    disc.style = 'margin:5px;border-radius:20px;width:40px;height:40px;background:white;';
-                    disc.id = "disc";
+                    disc.id = "discWhite";
                     element.appendChild(disc);
                 }
             }
